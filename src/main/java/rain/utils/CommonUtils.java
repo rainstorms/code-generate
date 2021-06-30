@@ -51,4 +51,8 @@ public class CommonUtils {
     public static void xxx(String pattern, Date date) {
         System.out.println("test 1");
     }
+
+    public static void xxx2(String pattern, Date date) {
+        System.out.println("test 2");
+    }
 }
