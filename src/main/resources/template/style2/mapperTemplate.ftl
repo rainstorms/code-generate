@@ -1,14 +1,11 @@
-package ${mapperPackage};
+apackage com.mythware.laboratory.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-import ${entityPackage}.${entity};
+import org.mapstruct.Mapper;
 
-/**
- * @Description: ${entity} Mapper
- * @author: ${author}
- * @Date: ${date}
- */
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.mythware.laboratory.bean.entity.${entity};
+
 @Mapper
-public interface ${entity}Mapper extends tk.mybatis.mapper.common.Mapper<${entity}> {
+public interface I${entity}Dao extends BaseMapper<${entity}> {
 
-}
+ }

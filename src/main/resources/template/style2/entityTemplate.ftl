@@ -1,35 +1,23 @@
 package ${entityPackage};
 
-<#list table.fields as field>
-<#if field.propertyType?index_of("BigDecimal")!=-1>
-<#assign importBigDecimal=true/>
-</#if>
-<#if field.propertyType?index_of("Date")!=-1>
-<#assign importDate=true/>
-</#if>
-</#list>
-<#if importBigDecimal?exists>
-import java.math.BigDecimal;
-</#if>
-<#if importDate?exists>
-import java.util.Date;
-</#if>
-import javax.persistence.*;
-import lombok.Data;
-import lombok.experimental.Accessors;
-import io.swagger.annotations.ApiModel;
+
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 @Data
-@ApiModel
-@Table(name = "${table.name}")
-public class ${entity} {
+@TableName(value = "${table.name}")
+public class ${entity}Entity {
 <#-- 循环属性名称 -->
 <#list table.fields as field>
     <#if field.comment??>
         @ApiModelProperty(value = "<#if field.comment!="">${field.comment}<#else >主键</#if>")
     </#if>
-    private ${field.propertyType} ${field.propertyName};
+    private <#if field.propertyType="Date"> Integer<#else >${field.propertyType}</#if> ${field.propertyName};
 
 </#list>
 

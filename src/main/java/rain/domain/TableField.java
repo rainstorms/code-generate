@@ -14,4 +14,12 @@ public class TableField {
     private String propertyName;
     private ColumnTypeEnum columnType;
     private String comment;
+
+    public String getPropertyType() {
+        return null != this.columnType ? this.columnType.getType() : null;
+    }
+
+    public String getCapitalName() {
+        return this.propertyName.substring(0, 1).toUpperCase() + this.propertyName.substring(1);
+    }
 }

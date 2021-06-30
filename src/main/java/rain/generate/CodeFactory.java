@@ -29,6 +29,8 @@ public class CodeFactory {
     public void generateFile(String templateFileName, CodeType type, Map<String, Object> data) throws TemplateException, IOException {
         String entityName = data.get("entity").toString();
         String fileNamePath = getCodePath(type, entityName);//获取生成的文件路径
+        if (fileNamePath.endsWith("src/main/resources/code")) return;
+
         System.out.println("fileNamePath:" + fileNamePath);
         String fileDir = StringUtils.substringBeforeLast(fileNamePath, "/");
         Template template = getConfiguration().getTemplate(templateFileName);//获取模版信息
@@ -73,32 +75,48 @@ public class CodeFactory {
 
         switch (type) {
             case controller:
-                path.append("/java/").append(globalConfig.getControllerPackage()).append("/")
-                        .append(entityName).append("Controller").append(".java");
+                String controllerPackage = globalConfig.getControllerPackage();
+                if (StringUtils.isNotBlank(controllerPackage))
+                    path.append("/java/").append(controllerPackage).append("/")
+                            .append(entityName).append("Controller").append(".java");
                 break;
             case service:
-                path.append("/java/").append(globalConfig.getServicePackage()).append("/")
-                        .append(entityName).append("Service").append(".java");
+                String servicePackage = globalConfig.getServicePackage();
+                if (StringUtils.isNotBlank(servicePackage))
+                    path.append("/java/").append(servicePackage).append("/")
+                            .append(entityName).append("Service").append(".java");
                 break;
             case serviceImpl:
-                path.append("/java/").append(globalConfig.getServiceImplPackage()).append("/")
-                        .append(entityName).append("ServiceImpl").append(".java");
+                String serviceImplPackage = globalConfig.getServiceImplPackage();
+                if (StringUtils.isNotBlank(serviceImplPackage))
+                    path.append("/java/").append(serviceImplPackage).append("/")
+                            .append(entityName).append("ServiceImpl").append(".java");
                 break;
             case mapper:
-                path.append("/java/").append(globalConfig.getMapperPackage()).append("/")
-                        .append(entityName).append("Mapper").append(".java");
+                String mapperPackage = globalConfig.getMapperPackage();
+                if (StringUtils.isNotBlank(mapperPackage))
+                    path.append("/java/").append(mapperPackage).append("/")
+                            .append(entityName).append("Mapper").append(".java");
                 break;
             case mapperXml:
-                path.append("/resources/").append(globalConfig.getMapperXmlPath()).append("/")
-                        .append(entityName).append("Mapper").append(".xml");
+                String mapperXmlPath = globalConfig.getMapperXmlPath();
+                if (StringUtils.isNotBlank(mapperXmlPath))
+                    path.append("/resources/").append(mapperXmlPath).append("/")
+                            .append(entityName).append("Mapper").append(".xml");
                 break;
             case entity:
-                path.append("/java/").append(globalConfig.getEntityPackage()).append("/")
-                        .append(entityName).append(".java");
+                String entityPackage = globalConfig.getEntityPackage();
+                if (StringUtils.isNotBlank(entityPackage)) {
+                    path.append("/java/").append(entityPackage).append("/")
+                            .append(entityName).append("Entity").append(".java");
+                }
                 break;
             case dao:
-                path.append("/java/").append(globalConfig.getDaoPackage()).append("/")
-                        .append(entityName).append("Mapper").append(".xml");
+                String daoPackage = globalConfig.getDaoPackage();
+                if (StringUtils.isNotBlank(daoPackage)) {
+                    path.append("/java/").append(daoPackage).append("/I")
+                            .append(entityName).append("Dao").append(".java");
+                }
                 break;
             default:
                 throw new IllegalArgumentException("type is not found");

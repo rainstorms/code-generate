@@ -76,6 +76,7 @@ public class CodeGenerate {
                 codeFactory.generateFile("serviceTemplate.ftl", CodeType.service, data);
                 codeFactory.generateFile("serviceImplTemplate.ftl", CodeType.serviceImpl, data);
                 codeFactory.generateFile("mapperTemplate.ftl", CodeType.mapper, data);
+                codeFactory.generateFile("daoTemplate.ftl", CodeType.dao, data);
                 if (StringUtils.isNotBlank(globalConfig.getMapperXmlPath())) {
                     codeFactory.generateFile("mapperXmlTemplate.ftl", CodeType.mapperXml, data);
                 }

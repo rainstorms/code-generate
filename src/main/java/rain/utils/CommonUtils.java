@@ -23,7 +23,7 @@ public class CommonUtils {
             m.appendReplacement(sb, m.group().toUpperCase().replace("_", ""));
         }
         m.appendTail(sb);
-        return strKey;
+        return sb.toString();
     }
 
     /**

@@ -37,7 +37,6 @@ public class Test {
             e.printStackTrace();
         }
     }
-
     public static Configuration getConfiguration() {
         Configuration cfg = new Configuration();
         cfg.setClassForTemplateLoading(cfg.getClass(), "/template/withoutproperty");

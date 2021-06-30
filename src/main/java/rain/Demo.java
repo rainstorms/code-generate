@@ -16,17 +16,17 @@ public class Demo {
         //实体包名
         globalConfig.setEntityPackage("com.mythware.laboratory.bean");
         //mapper包名
-        globalConfig.setMapperPackage("com.xinhuo.demo.mapper");
+//        globalConfig.setMapperPackage("com.xinhuo.demo.mapper");
         //mapper的xml路径
-        globalConfig.setMapperXmlPath("mapper");
+//        globalConfig.setMapperXmlPath("mapper");
         //service包名
-        globalConfig.setServicePackage("com.xinhuo.demo.service");
-        globalConfig.setServiceImplPackage("com.xinhuo.demo.service.impl");
-        globalConfig.setControllerPackage("com.mythware.laboratory.app.admin.controller");
+//        globalConfig.setServicePackage("com.xinhuo.demo.service");
+//        globalConfig.setServiceImplPackage("com.xinhuo.demo.service.impl");
+//        globalConfig.setControllerPackage("com.mythware.laboratory.app.admin.controller");
         globalConfig.setDaoPackage("com.mythware.laboratory.dao");
 
         //需要生成的实体
-        globalConfig.setTableNames(new String[]{"experiment"});
+        globalConfig.setTableNames(new String[]{"exam_session_invigilator"});
         //生成的实体移除前缀
         globalConfig.setPrefix("website_");
 
@@ -36,7 +36,7 @@ public class Demo {
         //数据库配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUrl("jdbc:mysql://{ip}:{port}/{dbname}?useUnicode=true&&characterEncoding=UTF-8&connectTimeout=1000&autoReconnect=true&useSSL=false");
+        dsc.setUrl("jdbc:mysql://10.88.254.43:3306/mythware_laboratory?useUnicode=true&&characterEncoding=UTF-8&connectTimeout=1000&autoReconnect=true&useSSL=false");
         //填写自己的数据库账号
         dsc.setUsername("root");
         //填写自己的数据库密码

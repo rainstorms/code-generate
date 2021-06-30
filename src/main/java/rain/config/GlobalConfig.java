@@ -13,14 +13,14 @@ public class GlobalConfig {
     private String outputDir;//文件输出路径，不配置的话默认输出当前项目的resources/code目录下
 
     private String[] tableNames;//表名
-    private String entityPackage = "entity";//实体包
-    private String controllerPackage = "controller";//控制层包名
-    private String servicePackage = "service";//service层包名
-    private String serviceImplPackage = "service.Impl";//serviceImpl层包名
+    private String entityPackage = "";//实体包
+    private String controllerPackage = "";//控制层包名
+    private String servicePackage = "";//service层包名
+    private String serviceImplPackage = "";//serviceImpl层包名
 
-    private String daoPackage = "dao";//持久层包名
+    private String daoPackage = "";//持久层包名
 
-    private String mapperPackage = "mapper";//dao层包名
+    private String mapperPackage = "";//dao层包名
     private String mapperXmlPath = "";//dao层xml路径
 
 }
