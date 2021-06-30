@@ -48,4 +48,7 @@ public class CommonUtils {
         return sdf.format(date == null ? new Date() : date);
     }
 
+    public static void xxx(String pattern, Date date) {
+        System.out.println("test 1");
+    }
 }
